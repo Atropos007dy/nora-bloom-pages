@@ -3,10 +3,62 @@
   <head>
     <meta charset="UTF-8" />
     <title>Nora Bloom Pages</title>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: #fff8ef;
+        font-family: Georgia, serif;
+        text-align: center;
+        color: #4b3a2f;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .page {
+        padding: 40px 20px;
+        max-width: 900px;
+      }
+
+      .nora-logo {
+        width: min(780px, 90vw);
+        margin-bottom: 28px;
+      }
+
+      .tagline {
+        font-size: 24px;
+        line-height: 1.5;
+        margin-bottom: 40px;
+      }
+
+      .author {
+        font-size: 18px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #7d6b5d;
+        margin-bottom: 16px;
+      }
+
+      .kumo-logo {
+        width: min(360px, 70vw);
+      }
+    </style>
   </head>
   <body>
-    <h1>Nora Bloom Pages</h1>
-    <p>Cozy books, gentle stories, and little moments of wonder.</p>
-    <p>Website coming soon.</p>
+    <main class="page">
+      <img class="nora-logo" src="assets/nora-bloom-pages-logo.png" alt="Nora Bloom Pages logo" />
+
+      <p class="tagline">
+        Cozy books, gentle stories,<br />
+        and little moments of wonder.
+      </p>
+
+      <div class="author">Featured author</div>
+
+      <img class="kumo-logo" src="assets/kumo-ellis-logo.png" alt="Kumo Ellis logo" />
+
+      <p>Website coming soon.</p>
+    </main>
   </body>
 </html>
