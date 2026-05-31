@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Manuscript Paper | Nora Bloom Pages</title>
+    <style>
+      body {
+        margin: 0;
+        background: #fbf6ee;
+        font-family: Georgia, serif;
+        color: #4b3a2f;
+      }
+
+      header {
+        text-align: center;
+        padding: 28px 20px;
+      }
+
+      nav {
+        display: flex;
+        justify-content: center;
+        gap: 34px;
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 26px;
+      }
+
+      nav a {
+        color: #6f6258;
+        text-decoration: none;
+      }
+
+      .nora-logo {
+        width: min(520px, 82vw);
+      }
+
+      .section {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 42px 24px;
+      }
+
+      .page-title {
+        text-align: center;
+        font-size: clamp(36px, 5vw, 64px);
+        font-weight: 400;
+        margin: 0 0 16px;
+      }
+
+      .intro {
+        text-align: center;
+        max-width: 620px;
+        margin: 0 auto 42px;
+        font-size: 20px;
+        line-height: 1.55;
+      }
+
+      .books-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 26px;
+      }
+
+      .product-card {
+        background: #fffaf3;
+        border: 1px solid #eadfce;
+        border-radius: 26px;
+        padding: 22px;
+        box-shadow: 0 18px 40px rgba(79, 59, 41, 0.06);
+        text-align: center;
+      }
+
+      .product-card img {
+        width: 100%;
+        border-radius: 18px;
+        box-shadow: 0 14px 28px rgba(79, 59, 41, 0.16);
+      }
+
+      .product-card h2 {
+        font-size: 24px;
+        font-weight: 400;
+        margin: 18px 0 8px;
+      }
+
+      .product-card p {
+        font-size: 15px;
+        line-height: 1.5;
+        color: #6f6258;
+      }
+
+      .button {
+        display: inline-block;
+        margin-top: 12px;
+        padding: 12px 20px;
+        border: 1px solid #9fb4bf;
+        border-radius: 999px;
+        text-decoration: none;
+        color: #4b3a2f;
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        background: #f7efe2;
+      }
+
+      footer {
+        text-align: center;
+        padding: 42px 20px;
+        color: #8b7869;
+        font-size: 14px;
+      }
+
+      @media (max-width: 850px) {
+        .books-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#collections">Books</a>
+        <a href="index.html#authors">Authors</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+      <img class="nora-logo" src="assets/nora-bloom-pages-logo.png" alt="Nora Bloom Pages logo" />
+    </header>
+
+    <main class="section">
+      <h1 class="page-title">Music Manuscript Paper</h1>
+
+      <p class="intro">
+        Blank staff paper books for students, teachers, composers, and music lovers.
+      </p>
+
+      <div class="books-grid">
+        <div class="product-card">
+          <img src="assets/music-manuscript-cover.jpg" alt="Music Manuscript Paper book cover" />
+
+          <h2>Music Manuscript Paper</h2>
+          <p>
+            A cozy blank staff paper notebook for writing melodies, music lessons,
+            composition practice, and creative ideas.
+          </p>
+
+          <a class="button" href="你的Amazon链接" target="_blank">
+            View on Amazon
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      © Nora Bloom Pages · Music manuscript paper books
+    </footer>
+  </body>
+</html>

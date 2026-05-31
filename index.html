@@ -105,6 +105,15 @@
         margin: 0;
         color: #6f6258;
       }
+      .collection-link {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.2s ease;
+        }
+    .collection-link:hover {
+        transform: translateY(-3px);
+        }
 
       .small-note {
         display: block;
@@ -246,11 +255,11 @@
           <span class="small-note">Coming soon</span>
         </div>
 
-        <div class="collection-card">
-          <h3>Music Manuscript Paper</h3>
-          <p>Blank staff paper books for students, teachers, composers, and music lovers.</p>
-          <span class="small-note">Coming soon</span>
-        </div>
+        <a class="collection-card collection-link" href="music-manuscript.html">
+            <h3>Music Manuscript Paper</h3>
+            <p>Blank staff paper books for students, teachers, composers, and music lovers.</p>
+            <span class="small-note">View collection</span>
+        </a>
 
         <div class="collection-card">
           <h3>Activity Books for Kids</h3>
