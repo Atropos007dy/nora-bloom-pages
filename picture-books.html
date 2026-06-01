@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Picture Books | Nora Bloom Pages</title>
+
+    <style>
+      body {
+        margin: 0;
+        background: #fbf6ee;
+        font-family: Georgia, serif;
+        color: #4b3a2f;
+      }
+
+      header {
+        text-align: center;
+        padding: 28px 20px;
+      }
+
+      nav {
+        display: flex;
+        justify-content: center;
+        gap: 34px;
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 26px;
+      }
+
+      nav a {
+        color: #6f6258;
+        text-decoration: none;
+      }
+
+      .nora-logo {
+        width: min(520px, 82vw);
+      }
+
+      .section {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 42px 24px;
+      }
+
+      .page-title {
+        text-align: center;
+        font-size: clamp(36px, 5vw, 64px);
+        font-weight: 400;
+        margin: 0 0 16px;
+      }
+
+      .intro {
+        text-align: center;
+        max-width: 680px;
+        margin: 0 auto 34px;
+        font-size: 20px;
+        line-height: 1.55;
+      }
+
+      .series-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 34px;
+      }
+
+      .series-tabs button {
+        padding: 11px 18px;
+        border: 1px solid #eadfce;
+        border-radius: 999px;
+        background: #fffaf3;
+        color: #4b3a2f;
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      .series-tabs button.active {
+        background: #f7efe2;
+        border-color: #9fb4bf;
+      }
+
+      .books-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 280px));
+        gap: 30px;
+        justify-content: center;
+      }
+
+      .product-card {
+        background: #fffaf3;
+        border: 1px solid #eadfce;
+        border-radius: 26px;
+        padding: 22px;
+        box-shadow: 0 18px 40px rgba(79, 59, 41, 0.06);
+        text-align: center;
+      }
+
+      .product-card img {
+        width: 100%;
+        border-radius: 18px;
+        box-shadow: 0 14px 28px rgba(79, 59, 41, 0.16);
+      }
+
+      .product-card h2 {
+        font-size: 22px;
+        font-weight: 400;
+        margin: 18px 0 8px;
+        line-height: 1.25;
+      }
+
+      .product-card p {
+        font-size: 15px;
+        line-height: 1.5;
+        color: #6f6258;
+        margin: 8px 0 0;
+      }
+
+      .button {
+        display: inline-block;
+        margin-top: 12px;
+        padding: 12px 20px;
+        border: 1px solid #9fb4bf;
+        border-radius: 999px;
+        text-decoration: none;
+        color: #4b3a2f;
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        background: #f7efe2;
+      }
+
+      .pagination {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 42px;
+        flex-wrap: wrap;
+      }
+
+      .pagination button {
+        padding: 10px 16px;
+        border: 1px solid #eadfce;
+        border-radius: 999px;
+        background: #fffaf3;
+        color: #4b3a2f;
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        cursor: pointer;
+      }
+
+      .pagination button.active {
+        background: #f7efe2;
+        border-color: #9fb4bf;
+      }
+
+      .pagination button:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+
+      footer {
+        text-align: center;
+        padding: 42px 20px;
+        color: #8b7869;
+        font-size: 14px;
+      }
+
+      @media (max-width: 850px) {
+        nav {
+          gap: 18px;
+          flex-wrap: wrap;
+        }
+
+        .books-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .product-card {
+          max-width: 360px;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#collections">Books</a>
+        <a href="index.html#authors">Authors</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+      <img
+        class="nora-logo"
+        src="assets/nora-bloom-pages-logo.png"
+        alt="Nora Bloom Pages logo"
+      />
+    </header>
+
+    <main class="section">
+      <h1 class="page-title">Picture Books</h1>
+
+      <p class="intro">
+        Tender read-aloud stories for young children and cozy family moments.
+      </p>
+
+      <div class="series-tabs">
+        <button class="active" data-filter="all">All</button>
+        <button data-filter="why-i-love">Why I Love Series</button>
+        <button data-filter="safety">Safety Education Series</button>
+        <button data-filter="life-skills">Little Life Skills Series</button>
+      </div>
+
+      <div class="books-grid">
+        <!-- Why I Love Series -->
+        <div class="product-card" data-series="why-i-love">
+          <img
+            src="assets/why-i-love-mommy-cover.jpg"
+            alt="Why I Love Mommy picture book cover"
+          />
+
+          <h2>Why I Love Mommy</h2>
+
+          <p>
+            A tender little love poem told from a child’s heart.
+          </p>
+
+          <a
+            class="button"
+            href="https://www.amazon.com/Why-Love-Mommy-Little-Poem/dp/B0H3C44XF2/"
+            target="_blank"
+          >
+            View on Amazon
+          </a>
+        </div>
+
+        <!-- 以后 Why I Love Daddy 放这里 -->
+        <!--
+        <div class="product-card" data-series="why-i-love">
+          <img
+            src="assets/why-i-love-daddy-cover.jpg"
+            alt="Why I Love Daddy picture book cover"
+          />
+
+          <h2>Why I Love Daddy</h2>
+
+          <p>
+            A sweet rhyming picture book celebrating Daddy’s love.
+          </p>
+
+          <a
+            class="button"
+            href="https://www.amazon.com/dp/YOURASIN"
+            target="_blank"
+          >
+            View on Amazon
+          </a>
+        </div>
+        -->
+
+        <!-- 以后安全教育系列放这里 -->
+        <!--
+        <div class="product-card" data-series="safety">
+          <img
+            src="assets/safety-book-cover.jpg"
+            alt="Safety education picture book cover"
+          />
+
+          <h2>Your Safety Book Title</h2>
+
+          <p>
+            A gentle safety story for little everyday moments.
+          </p>
+
+          <a
+            class="button"
+            href="https://www.amazon.com/dp/YOURASIN"
+            target="_blank"
+          >
+            View on Amazon
+          </a>
+        </div>
+        -->
+
+        <!-- 以后 potty / 刷牙 / 洗手 / 上学 放这里 -->
+        <!--
+        <div class="product-card" data-series="life-skills">
+          <img
+            src="assets/potty-book-cover.jpg"
+            alt="Little life skills picture book cover"
+          />
+
+          <h2>Your Life Skills Book Title</h2>
+
+          <p>
+            A gentle story for little life skills and growing-up moments.
+          </p>
+
+          <a
+            class="button"
+            href="https://www.amazon.com/dp/YOURASIN"
+            target="_blank"
+          >
+            View on Amazon
+          </a>
+        </div>
+        -->
+      </div>
+
+      <div class="pagination" id="pagination"></div>
+    </main>
+
+    <footer>
+      © Nora Bloom Pages · Picture books for cozy family moments
+    </footer>
+
+    <script>
+      const cardsPerPage = 8;
+      const cards = Array.from(document.querySelectorAll(".product-card"));
+      const pagination = document.getElementById("pagination");
+      const filterButtons = document.querySelectorAll(".series-tabs button");
+
+      let currentPage = 1;
+      let currentFilter = "all";
+
+      function getFilteredCards() {
+        if (currentFilter === "all") {
+          return cards;
+        }
+
+        return cards.filter((card) => card.dataset.series === currentFilter);
+      }
+
+      function showPage(page) {
+        currentPage = page;
+
+        const filteredCards = getFilteredCards();
+        const totalPages = Math.ceil(filteredCards.length / cardsPerPage);
+
+        cards.forEach((card) => {
+          card.style.display = "none";
+        });
+
+        filteredCards.forEach((card, index) => {
+          const start = (page - 1) * cardsPerPage;
+          const end = start + cardsPerPage;
+
+          if (index >= start && index < end) {
+            card.style.display = "block";
+          }
+        });
+
+        renderPagination(totalPages);
+      }
+
+      function renderPagination(totalPages) {
+        pagination.innerHTML = "";
+
+        if (totalPages <= 1) {
+          pagination.style.display = "none";
+          return;
+        }
+
+        pagination.style.display = "flex";
+
+        const prevButton = document.createElement("button");
+        prevButton.textContent = "Previous";
+        prevButton.disabled = currentPage === 1;
+        prevButton.addEventListener("click", () => showPage(currentPage - 1));
+        pagination.appendChild(prevButton);
+
+        for (let i = 1; i <= totalPages; i++) {
+          const button = document.createElement("button");
+          button.textContent = i;
+
+          if (i === currentPage) {
+            button.classList.add("active");
+          }
+
+          button.addEventListener("click", () => showPage(i));
+          pagination.appendChild(button);
+        }
+
+        const nextButton = document.createElement("button");
+        nextButton.textContent = "Next";
+        nextButton.disabled = currentPage === totalPages;
+        nextButton.addEventListener("click", () => showPage(currentPage + 1));
+        pagination.appendChild(nextButton);
+      }
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          filterButtons.forEach((btn) => btn.classList.remove("active"));
+          button.classList.add("active");
+
+          currentFilter = button.dataset.filter;
+          currentPage = 1;
+
+          showPage(1);
+        });
+      });
+
+      showPage(1);
+    </script>
+  </body>
+</html>
