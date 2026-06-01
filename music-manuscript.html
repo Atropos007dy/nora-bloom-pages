@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Music Manuscript Paper | Nora Bloom Pages</title>
+
     <style>
       body {
         margin: 0;
@@ -85,12 +86,6 @@
         margin: 18px 0 8px;
       }
 
-      .product-card p {
-        font-size: 15px;
-        line-height: 1.5;
-        color: #6f6258;
-      }
-
       .button {
         display: inline-block;
         margin-top: 12px;
@@ -104,6 +99,30 @@
         letter-spacing: 0.12em;
         text-transform: uppercase;
         background: #f7efe2;
+      }
+
+      .pagination {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 42px;
+        flex-wrap: wrap;
+      }
+
+      .pagination button {
+        padding: 10px 16px;
+        border: 1px solid #eadfce;
+        border-radius: 999px;
+        background: #fffaf3;
+        color: #4b3a2f;
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        cursor: pointer;
+      }
+
+      .pagination button.active {
+        background: #f7efe2;
+        border-color: #9fb4bf;
       }
 
       footer {
@@ -130,7 +149,11 @@
         <a href="index.html#contact">Contact</a>
       </nav>
 
-      <img class="nora-logo" src="assets/nora-bloom-pages-logo.png" alt="Nora Bloom Pages logo" />
+      <img
+        class="nora-logo"
+        src="assets/nora-bloom-pages-logo.png"
+        alt="Nora Bloom Pages logo"
+      />
     </header>
 
     <main class="section">
@@ -141,106 +164,180 @@
       </p>
 
       <div class="books-grid">
-
-        <!-- Book card start -->
+        <!-- Book 1 -->
         <div class="product-card">
-    <img
-      src="assets/forest-animal-music-cover.jpg"
-      alt="Forest Animal Music Cover music manuscript paper book"
-    />
+          <img
+            src="assets/forest-animal-music-cover.jpg"
+            alt="Forest Animal Music Cover music manuscript paper book"
+          />
 
-    <h2>Forest Animal Music Cover</h2>
+          <h2>Forest Animal Music Cover</h2>
 
-    <a class="button" href="https://www.amazon.com/dp/B0H2MYG66B" target="_blank">
-      View on Amazon
-    </a>
-  </div>
-         <!-- Book card end -->
-    <div class="product-card">
-  <img
-    src="assets/cute-kitten-piano-theme.jpg"
-    alt="Cute Kitten Piano Theme music manuscript paper book"
-  />
+          <a class="button" href="https://www.amazon.com/dp/B0H2MYG66B" target="_blank">
+            View on Amazon
+          </a>
+        </div>
 
-  <h2>Cute Kitten Piano Theme</h2>
-
-  <a class="button" href="https://www.amazon.com/dp/B0H2ZB5JQY" target="_blank">
-    View on Amazon
-  </a>
-</div>
-        <!-- Book card start -->
+        <!-- Book 2 -->
         <div class="product-card">
-    <img
-      src="assets/seaside-animal.jpg"
-      alt="Seaside Animal Music Theme music manuscript paper book"
-    />
+          <img
+            src="assets/cute-kitten-piano-theme.jpg"
+            alt="Cute Kitten Piano Theme music manuscript paper book"
+          />
 
-    <h2>Seaside Animal Music Theme</h2>
+          <h2>Cute Kitten Piano Theme</h2>
 
-    <a class="button" href="https://www.amazon.com/dp/B0H392KYYF" target="_blank">
-      View on Amazon
-    </a>
-  </div>
-         <!-- Book card end -->
+          <a class="button" href="https://www.amazon.com/dp/B0H2ZB5JQY" target="_blank">
+            View on Amazon
+          </a>
+        </div>
 
-
-            <!-- Book card start -->
+        <!-- Book 3 -->
         <div class="product-card">
-    <img
-      src="assets/cute-fox.jpg"
-      alt="Cute Fox Cover music manuscript paper book"
-    />
+          <img
+            src="assets/seaside-animal.jpg"
+            alt="Seaside Animal Music Theme music manuscript paper book"
+          />
 
-    <h2>Cute Fox Cover</h2>
+          <h2>Seaside Animal Music Theme</h2>
 
-    <a class="button" href="https://www.amazon.com/dp/B0H2MW2NCH" target="_blank">
-      View on Amazon
-    </a>
-  </div>
-         <!-- Book card end -->
-                 <!-- Book card start -->
+          <a class="button" href="https://www.amazon.com/dp/B0H392KYYF" target="_blank">
+            View on Amazon
+          </a>
+        </div>
+
+        <!-- Book 4 -->
         <div class="product-card">
-    <img
-      src="assets/cute-cat.jpg"
-      alt="Cute Cat Cover music manuscript paper book"
-    />
+          <img
+            src="assets/cute-fox.jpg"
+            alt="Cute Fox Cover music manuscript paper book"
+          />
 
-    <h2>Cute Cat Cover</h2>
+          <h2>Cute Fox Cover</h2>
 
-    <a class="button" href="https://www.amazon.com/dp/B0H2MCJP1G" target="_blank">
-      View on Amazon
-    </a>
-  </div>
-         <!-- Book card end -->
+          <a class="button" href="https://www.amazon.com/dp/B0H2MW2NCH" target="_blank">
+            View on Amazon
+          </a>
+        </div>
 
-                   <!-- Book card start -->
+        <!-- Book 5 -->
         <div class="product-card">
-    <img
-      src="assets/starry-woodland.jpg"
-      alt="Starry Woodland Music Theme music manuscript paper book"
-    />
+          <img
+            src="assets/cute-cat.jpg"
+            alt="Cute Cat Cover music manuscript paper book"
+          />
 
-    <h2>Starry Woodland Music Theme</h2>
+          <h2>Cute Cat Cover</h2>
 
-    <a class="button" href="https://www.amazon.com/dp/B0H3KCDXNM" target="_blank">
-      View on Amazon
-    </a>
-  </div>
-         <!-- Book card end -->
+          <a class="button" href="https://www.amazon.com/dp/B0H2MCJP1G" target="_blank">
+            View on Amazon
+          </a>
+        </div>
 
+        <!-- Book 6 -->
+        <div class="product-card">
+          <img
+            src="assets/starry-woodland.jpg"
+            alt="Starry Woodland Music Theme music manuscript paper book"
+          />
 
+          <h2>Starry Woodland Music Theme</h2>
 
-      
+          <a class="button" href="https://www.amazon.com/dp/B0H3KCDXNM" target="_blank">
+            View on Amazon
+          </a>
+        </div>
 
+        <!-- 以后第7本、第8本、第9本继续复制这个格式放在这里 -->
+        <!--
+        <div class="product-card">
+          <img
+            src="assets/your-new-cover.jpg"
+            alt="Your New Book Title music manuscript paper book"
+          />
 
+          <h2>Your New Book Title</h2>
 
-
-
+          <a class="button" href="https://www.amazon.com/dp/YOURASIN" target="_blank">
+            View on Amazon
+          </a>
+        </div>
+        -->
       </div>
+
+      <div class="pagination" id="pagination"></div>
     </main>
 
     <footer>
       © Nora Bloom Pages · Music manuscript paper books
     </footer>
+
+    <script>
+      const cardsPerPage = 12;
+      const cards = document.querySelectorAll(".product-card");
+      const pagination = document.getElementById("pagination");
+
+      let currentPage = 1;
+      const totalPages = Math.ceil(cards.length / cardsPerPage);
+
+      function showPage(page) {
+        currentPage = page;
+
+        cards.forEach((card, index) => {
+          const start = (page - 1) * cardsPerPage;
+          const end = start + cardsPerPage;
+
+          if (index >= start && index < end) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+
+        renderPagination();
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      }
+
+      function renderPagination() {
+        pagination.innerHTML = "";
+
+        if (totalPages <= 1) {
+          pagination.style.display = "none";
+          return;
+        }
+
+        pagination.style.display = "flex";
+
+        const prevButton = document.createElement("button");
+        prevButton.textContent = "Previous";
+        prevButton.disabled = currentPage === 1;
+        prevButton.addEventListener("click", () => showPage(currentPage - 1));
+        pagination.appendChild(prevButton);
+
+        for (let i = 1; i <= totalPages; i++) {
+          const button = document.createElement("button");
+          button.textContent = i;
+
+          if (i === currentPage) {
+            button.classList.add("active");
+          }
+
+          button.addEventListener("click", () => showPage(i));
+          pagination.appendChild(button);
+        }
+
+        const nextButton = document.createElement("button");
+        nextButton.textContent = "Next";
+        nextButton.disabled = currentPage === totalPages;
+        nextButton.addEventListener("click", () => showPage(currentPage + 1));
+        pagination.appendChild(nextButton);
+      }
+
+      showPage(1);
+    </script>
   </body>
 </html>
