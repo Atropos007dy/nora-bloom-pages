@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nora Bloom Pages</title>
+
     <style>
       body {
         margin: 0;
@@ -99,10 +100,27 @@
         align-items: center;
       }
 
+      .collection-image-box {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        border-radius: 18px;
+        margin-bottom: 16px;
+        background: #f3eadc;
+        box-shadow: 0 12px 24px rgba(79, 59, 41, 0.14);
+        overflow: hidden;
+      }
+
+      .collection-cover {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
       .collection-card h3 {
         font-size: 21px;
         font-weight: 400;
-        margin: 14px 4px 8px;
+        margin: 0 4px 8px;
       }
 
       .collection-card p {
@@ -112,31 +130,8 @@
         color: #6f6258;
       }
 
-      .collection-image-box {
-        width: 100%;
-        height: 230px;
-        border-radius: 18px;
-        margin-bottom: 16px;
-        background: #f3eadc;
-        box-shadow: 0 12px 24px rgba(79, 59, 41, 0.14);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-      }
-
-      .collection-cover {
-        display: block;
-        width: auto;
-        height: auto;
-        max-width: 92%;
-        max-height: 92%;
-        object-fit: contain;
-        border-radius: 14px;
-      }
-
       .collection-link {
-        display: block;
+        display: flex;
         text-decoration: none;
         color: inherit;
         transition: transform 0.2s ease;
@@ -246,11 +241,6 @@
         .author-card {
           padding: 24px;
         }
-
-        .collection-image-box {
-          height: 280px;
-        }
-
       }
     </style>
   </head>
@@ -264,14 +254,19 @@
         <a href="#contact">Contact</a>
       </nav>
 
-      <img class="nora-logo" src="assets/nora-bloom-pages-logo.png" alt="Nora Bloom Pages logo" />
+      <img
+        class="nora-logo"
+        src="assets/nora-bloom-pages-logo.png"
+        alt="Nora Bloom Pages logo"
+      />
     </header>
 
     <section class="hero" id="about">
       <h1>Books, music pages, and little things to grow with.</h1>
       <p>
-        Nora Bloom Pages is a small collection of children’s picture books, activity books,
-        music manuscript paper, and cozy notebooks for everyday creative moments.
+        Nora Bloom Pages is a small collection of children’s picture books,
+        activity books, music manuscript paper, and cozy notebooks for everyday
+        creative moments.
       </p>
     </section>
 
@@ -281,7 +276,11 @@
       <div class="collections-grid">
         <a class="collection-card collection-link" href="picture-books.html">
           <div class="collection-image-box">
-            <img class="collection-cover" src="assets/why-i-love-mommy-cover.jpg" alt="Picture books cover" />
+            <img
+              class="collection-cover"
+              src="assets/why-i-love-mommy-cover.jpg"
+              alt="Picture books cover"
+            />
           </div>
           <h3>Picture Books</h3>
           <p>Warm read-aloud stories for young children and family moments.</p>
@@ -290,7 +289,11 @@
 
         <div class="collection-card">
           <div class="collection-image-box">
-            <img class="collection-cover" src="assets/notebook-cover.jpg" alt="Notebook cover" />
+            <img
+              class="collection-cover"
+              src="assets/notebook-cover.jpg"
+              alt="Notebook cover"
+            />
           </div>
           <h3>Notebooks & Journals</h3>
           <p>Soft notebooks for school, work, thoughts, and everyday lists.</p>
@@ -299,7 +302,11 @@
 
         <a class="collection-card collection-link" href="music-manuscript.html">
           <div class="collection-image-box">
-            <img class="collection-cover" src="assets/music-manuscript-cover.jpg" alt="Music manuscript paper cover" />
+            <img
+              class="collection-cover"
+              src="assets/music-manuscript-cover.jpg"
+              alt="Music manuscript paper cover"
+            />
           </div>
           <h3>Music Pages</h3>
           <p>Blank staff paper for students, teachers, and music lovers.</p>
@@ -308,7 +315,11 @@
 
         <a class="collection-card collection-link" href="activity-books.html">
           <div class="collection-image-box">
-            <img class="collection-cover" src="assets/activity-book-cover.jpg" alt="Activity book cover" />
+            <img
+              class="collection-cover"
+              src="assets/activity-book-cover.jpg"
+              alt="Activity book cover"
+            />
           </div>
           <h3>Activity Books</h3>
           <p>Word search, sudoku, coloring, and playful learning books.</p>
@@ -321,12 +332,18 @@
       <div class="section-title">Featured Author</div>
 
       <div class="author-card">
-        <img class="kumo-logo" src="assets/kumo-ellis-logo.png" alt="Kumo Ellis logo" />
+        <img
+          class="kumo-logo"
+          src="assets/kumo-ellis-logo.png"
+          alt="Kumo Ellis logo"
+        />
 
         <div>
           <h2>Kumo Ellis</h2>
           <p>
-            Kumo Ellis creates tender picture books for young children, inspired by cozy homes, loving families, little feelings, and the quiet magic hidden inside everyday moments.
+            Kumo Ellis creates tender picture books for young children, inspired
+            by cozy homes, loving families, little feelings, and the quiet magic
+            hidden inside everyday moments.
           </p>
         </div>
       </div>
@@ -336,17 +353,25 @@
       <div class="section-title">Latest from Kumo Ellis</div>
 
       <div class="book-card">
-        <img class="book-cover" src="assets/why-i-love-mommy-cover.jpg" alt="Why I Love Mommy book cover" />
+        <img
+          class="book-cover"
+          src="assets/why-i-love-mommy-cover.jpg"
+          alt="Why I Love Mommy book cover"
+        />
 
         <div>
           <h2>Why I Love Mommy</h2>
           <p>
-            A tender little love poem told from a child’s heart. From moonlit comfort to kitchen warmth,
-            from soft songs to playful stories, this sweet picture book celebrates the everyday magic
-            of Mommy’s love.
+            A tender little love poem told from a child’s heart. From moonlit
+            comfort to kitchen warmth, from soft songs to playful stories, this
+            sweet picture book celebrates the everyday magic of Mommy’s love.
           </p>
 
-          <a class="button" href="https://www.amazon.com/Why-Love-Mommy-Little-Poem/dp/B0H3C44XF2/" target="_blank">
+          <a
+            class="button"
+            href="https://www.amazon.com/Why-Love-Mommy-Little-Poem/dp/B0H3C44XF2/"
+            target="_blank"
+          >
             View on Amazon
           </a>
         </div>
@@ -365,7 +390,8 @@
     </section>
 
     <footer>
-      © Nora Bloom Pages · Picture books, notebooks, music pages, and activity books
+      © Nora Bloom Pages · Picture books, notebooks, music pages, and activity
+      books
     </footer>
   </body>
 </html>
