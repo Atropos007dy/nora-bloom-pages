@@ -109,13 +109,16 @@
       }
 
       .collection-cover {
-        width: 100%;
-        aspect-ratio: 2 / 3;
-        object-fit: cover;
-        border-radius: 18px;
-        box-shadow: 0 12px 24px rgba(79, 59, 41, 0.14);
-        background: #f3eadc;
-      }
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  aspect-ratio: 2 / 3;
+  object-fit: contain;
+  border-radius: 18px;
+  margin: 0 auto 16px;
+  background: #f3eadc;
+  box-shadow: 0 12px 24px rgba(79, 59, 41, 0.14);
+}
 
       .collection-link {
         display: block;
@@ -229,11 +232,6 @@
           padding: 24px;
         }
 
-        .collection-cover {
-          max-width: 260px;
-          margin: 0 auto;
-          display: block;
-        }
       }
     </style>
   </head>
