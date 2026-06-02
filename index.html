@@ -39,24 +39,24 @@
       }
 
       .hero {
-  text-align: center;
-  padding: 26px 20px 30px;
-}
+        text-align: center;
+        padding: 26px 20px 30px;
+      }
 
-.hero h1 {
-  font-size: clamp(26px, 3.4vw, 44px);
-  font-weight: 400;
-  margin: 0 0 12px;
-  line-height: 1.1;
-}
+      .hero h1 {
+        font-size: clamp(26px, 3.4vw, 44px);
+        font-weight: 400;
+        margin: 0 0 12px;
+        line-height: 1.1;
+      }
 
-.hero p {
-  font-size: 15.5px;
-  line-height: 1.55;
-  max-width: 600px;
-  margin: 0 auto;
-  color: #6f6258;
-}
+      .hero p {
+        font-size: 15.5px;
+        line-height: 1.55;
+        max-width: 600px;
+        margin: 0 auto;
+        color: #6f6258;
+      }
 
       .section {
         max-width: 1080px;
@@ -74,13 +74,12 @@
         margin-bottom: 28px;
       }
 
-      .collections-grid {
+      .collection-list {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 18px;
       }
 
-      .collection-card,
+      .collection-row,
       .author-card,
       .book-card,
       .contact-card {
@@ -90,67 +89,67 @@
         box-shadow: 0 18px 40px rgba(79, 59, 41, 0.06);
       }
 
-      .collection-card {
-        padding: 16px 16px 20px;
-        min-height: 0;
-        overflow: hidden;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
+      .collection-row {
+        display: grid;
+        grid-template-columns: minmax(280px, 420px) 1fr;
+        gap: 26px;
         align-items: center;
+        padding: 18px;
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
       }
 
-      .collection-image-box {
-        width: 100%;
-        aspect-ratio: 1 / 1;
-        border-radius: 18px;
-        margin-bottom: 16px;
+      .collection-row:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 22px 46px rgba(79, 59, 41, 0.09);
+      }
+
+      .collection-preview {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+
+      .preview-frame {
+        aspect-ratio: 3 / 4;
+        border-radius: 16px;
         background: #f3eadc;
-        box-shadow: 0 12px 24px rgba(79, 59, 41, 0.14);
-        overflow: hidden;
+        box-shadow: 0 10px 22px rgba(79, 59, 41, 0.13);
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 10px;
+        padding: 8px;
         box-sizing: border-box;
+        overflow: hidden;
       }
 
-      .collection-cover {
+      .preview-frame img {
         display: block;
         max-width: 100%;
         max-height: 100%;
         width: auto;
         height: auto;
         object-fit: contain;
-        border-radius: 14px;
+        border-radius: 12px;
       }
 
-      .collection-card h3 {
-        font-size: 21px;
+      .collection-copy h3 {
+        font-size: 28px;
         font-weight: 400;
-        margin: 0 4px 8px;
+        margin: 0 0 10px;
       }
 
-      .collection-card p {
-        font-size: 14px;
-        line-height: 1.45;
-        margin: 0 4px;
+      .collection-copy p {
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 0;
         color: #6f6258;
       }
 
-      .collection-link {
-        text-decoration: none;
-        color: inherit;
-        transition: transform 0.2s ease;
-      }
-
-      .collection-link:hover {
-        transform: translateY(-3px);
-      }
-
       .small-note {
-        display: block;
-        margin-top: 14px;
+        display: inline-block;
+        margin-top: 16px;
         font-family: Arial, sans-serif;
         font-size: 12px;
         letter-spacing: 0.08em;
@@ -232,27 +231,27 @@
         font-size: 14px;
       }
 
-      @media (max-width: 900px) {
-        .collections-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-      }
-
-      @media (max-width: 760px) {
+      @media (max-width: 850px) {
         nav {
           gap: 18px;
           flex-wrap: wrap;
         }
 
-        .collections-grid,
+        .collection-row,
         .author-card,
         .book-card {
           grid-template-columns: 1fr;
           text-align: center;
         }
 
-        .collections-grid {
-          max-width: 420px;
+        .collection-row {
+          max-width: 520px;
+          margin: 0 auto;
+        }
+
+        .collection-preview {
+          max-width: 360px;
+          width: 100%;
           margin: 0 auto;
         }
 
@@ -267,6 +266,25 @@
         .book-cover {
           max-width: 260px;
           margin: 0 auto;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .collection-preview {
+          gap: 8px;
+        }
+
+        .preview-frame {
+          border-radius: 14px;
+          padding: 6px;
+        }
+
+        .collection-copy h3 {
+          font-size: 24px;
+        }
+
+        .collection-copy p {
+          font-size: 15px;
         }
       }
     </style>
@@ -289,67 +307,95 @@
     </header>
 
     <section class="hero" id="about">
-  <h1>Picture books, notebooks, and creative pages.</h1>
-  <p>
-    Nora Bloom Pages is a small creative publishing space for picture books,
-    playful activity books, music manuscript paper, and everyday notebooks.
-  </p>
-</section>
+      <h1>Picture books, notebooks, and creative pages.</h1>
+      <p>
+        Nora Bloom Pages is a small creative publishing space for picture books,
+        playful activity books, music manuscript paper, and everyday notebooks.
+      </p>
+    </section>
 
     <section class="section" id="collections">
       <div class="section-title">Our Collections</div>
 
-      <div class="collections-grid">
-        <a class="collection-card collection-link" href="picture-books.html">
-          <div class="collection-image-box">
-            <img
-              class="collection-cover"
-              src="assets/why-i-love-mommy-cover.jpg"
-              alt="Picture books cover"
-            />
+      <div class="collection-list">
+        <a class="collection-row" href="picture-books.html">
+          <div class="collection-preview">
+            <div class="preview-frame">
+              <img src="assets/why-i-love-mommy-cover.jpg" alt="Why I Love Mommy picture book cover" />
+            </div>
+            <div class="preview-frame">
+              <img src="assets/why-i-love-mommy-cover.jpg" alt="Picture book cover preview" />
+            </div>
+            <div class="preview-frame">
+              <img src="assets/why-i-love-mommy-cover.jpg" alt="Picture book cover preview" />
+            </div>
           </div>
-          <h3>Picture Books</h3>
-          <p>Picture books for little hearts and curious minds.</p>
-          <span class="small-note">View collection</span>
+
+          <div class="collection-copy">
+            <h3>Picture Books</h3>
+            <p>Picture books for little hearts and curious minds.</p>
+            <span class="small-note">Explore more</span>
+          </div>
         </a>
 
-        <a class="collection-card collection-link" href="notebooks.html">
-  <div class="collection-image-box">
-    <img
-      class="collection-cover"
-      src="assets/notebook-cover.jpg"
-      alt="Notebook cover"
-    />
-  </div>
-  <h3>Notebooks & Journals</h3>
-  <p>Soft notebooks for school, work, thoughts, and everyday lists.</p>
-  <span class="small-note">View collection</span>
-</a>
-
-        <a class="collection-card collection-link" href="music-manuscript.html">
-          <div class="collection-image-box">
-            <img
-              class="collection-cover"
-              src="assets/music-manuscript-cover.jpg"
-              alt="Music manuscript paper cover"
-            />
+        <a class="collection-row" href="notebooks.html">
+          <div class="collection-preview">
+            <div class="preview-frame">
+              <img src="assets/strawberry_bunny_notebook.jpg" alt="Strawberry Bunny notebook cover" />
+            </div>
+            <div class="preview-frame">
+              <img src="assets/notebook-cover.jpg" alt="Notebook cover preview" />
+            </div>
+            <div class="preview-frame">
+              <img src="assets/notebook-cover.jpg" alt="Notebook cover preview" />
+            </div>
           </div>
-          <h3>Music Pages</h3>
-          <p>Blank staff paper for students, teachers, and music lovers.</p>
-          <span class="small-note">View collection</span>
+
+          <div class="collection-copy">
+            <h3>Notebooks & Journals</h3>
+            <p>Soft notebooks for school, work, thoughts, and everyday lists.</p>
+            <span class="small-note">Explore more</span>
+          </div>
         </a>
 
-        <a class="collection-card collection-link" href="activity-books.html">
-          <div class="collection-image-box">
-            <img
-              class="collection-cover"
-              src="assets/activity-book-cover.jpg"
-              alt="Activity book cover"
-            />
+        <a class="collection-row" href="music-manuscript.html">
+          <div class="collection-preview">
+            <div class="preview-frame">
+              <img src="assets/forest-animal-music-cover.jpg" alt="Forest Animal music manuscript paper cover" />
+            </div>
+            <div class="preview-frame">
+              <img src="assets/cute-kitten-piano-theme.jpg" alt="Cute Kitten Piano music manuscript paper cover" />
+            </div>
+            <div class="preview-frame">
+              <img src="assets/seaside-animal.jpg" alt="Seaside Animal music manuscript paper cover" />
+            </div>
           </div>
-          <h3>Activity Books</h3>
-          <p>Word search, sudoku, coloring, and playful learning books.</p>
-          <span class="small-note">View collection</span>
+
+          <div class="collection-copy">
+            <h3>Music Pages</h3>
+            <p>Blank staff paper for students, teachers, and music lovers.</p>
+            <span class="small-note">Explore more</span>
+          </div>
+        </a>
+
+        <a class="collection-row" href="activity-books.html">
+          <div class="collection-preview">
+            <div class="preview-frame">
+              <img src="assets/word-search-math.jpg" alt="Math word search activity book cover" />
+            </div>
+            <div class="preview-frame">
+              <img src="assets/first-sudoku.jpg" alt="First sudoku activity book cover" />
+            </div>
+            <div class="preview-frame">
+              <img src="assets/activity-book-cover.jpg" alt="Activity book cover preview" />
+            </div>
+          </div>
+
+          <div class="collection-copy">
+            <h3>Activity Books</h3>
+            <p>Word search, sudoku, coloring, and playful learning books.</p>
+            <span class="small-note">Explore more</span>
+          </div>
         </a>
       </div>
     </section>
@@ -410,7 +456,7 @@
       <div class="contact-card">
         <p>
           Nora Bloom Pages is growing slowly and sweetly. More books, notebooks,
-          and cozy little collections are coming soon.
+          and little collections are coming soon.
         </p>
       </div>
     </section>
