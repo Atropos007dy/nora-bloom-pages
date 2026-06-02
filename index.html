@@ -90,9 +90,13 @@
       }
 
       .collection-card {
-        padding: 16px;
+        padding: 16px 16px 20px;
         min-height: 0;
         overflow: hidden;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
       .collection-card h3 {
@@ -108,17 +112,28 @@
         color: #6f6258;
       }
 
+      .collection-image-box {
+        width: 100%;
+        height: 230px;
+        border-radius: 18px;
+        margin-bottom: 16px;
+        background: #f3eadc;
+        box-shadow: 0 12px 24px rgba(79, 59, 41, 0.14);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
       .collection-cover {
-  display: block;
-  width: 100%;
-  max-width: 220px;
-  aspect-ratio: 2 / 3;
-  object-fit: contain;
-  border-radius: 18px;
-  margin: 0 auto 16px;
-  background: #f3eadc;
-  box-shadow: 0 12px 24px rgba(79, 59, 41, 0.14);
-}
+        display: block;
+        width: auto;
+        height: auto;
+        max-width: 92%;
+        max-height: 92%;
+        object-fit: contain;
+        border-radius: 14px;
+      }
 
       .collection-link {
         display: block;
@@ -232,6 +247,10 @@
           padding: 24px;
         }
 
+        .collection-image-box {
+          height: 280px;
+        }
+
       }
     </style>
   </head>
@@ -261,28 +280,36 @@
 
       <div class="collections-grid">
         <a class="collection-card collection-link" href="picture-books.html">
-          <img class="collection-cover" src="assets/why-i-love-mommy-cover.jpg" alt="Picture books cover" />
+          <div class="collection-image-box">
+            <img class="collection-cover" src="assets/why-i-love-mommy-cover.jpg" alt="Picture books cover" />
+          </div>
           <h3>Picture Books</h3>
           <p>Warm read-aloud stories for young children and family moments.</p>
           <span class="small-note">View collection</span>
         </a>
 
         <div class="collection-card">
-          <img class="collection-cover" src="assets/notebook-cover.jpg" alt="Notebook cover" />
+          <div class="collection-image-box">
+            <img class="collection-cover" src="assets/notebook-cover.jpg" alt="Notebook cover" />
+          </div>
           <h3>Notebooks & Journals</h3>
           <p>Soft notebooks for school, work, thoughts, and everyday lists.</p>
           <span class="small-note">Coming soon</span>
         </div>
 
         <a class="collection-card collection-link" href="music-manuscript.html">
-          <img class="collection-cover" src="assets/music-manuscript-cover.jpg" alt="Music manuscript paper cover" />
+          <div class="collection-image-box">
+            <img class="collection-cover" src="assets/music-manuscript-cover.jpg" alt="Music manuscript paper cover" />
+          </div>
           <h3>Music Pages</h3>
           <p>Blank staff paper for students, teachers, and music lovers.</p>
           <span class="small-note">View collection</span>
         </a>
 
         <a class="collection-card collection-link" href="activity-books.html">
-          <img class="collection-cover" src="assets/activity-book-cover.jpg" alt="Activity book cover" />
+          <div class="collection-image-box">
+            <img class="collection-cover" src="assets/activity-book-cover.jpg" alt="Activity book cover" />
+          </div>
           <h3>Activity Books</h3>
           <p>Word search, sudoku, coloring, and playful learning books.</p>
           <span class="small-note">View collection</span>
