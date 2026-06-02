@@ -110,6 +110,35 @@
         background: #f7efe2;
       }
 
+      .pagination {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 42px;
+        flex-wrap: wrap;
+      }
+
+      .pagination button {
+        padding: 10px 16px;
+        border: 1px solid #eadfce;
+        border-radius: 999px;
+        background: #fffaf3;
+        color: #4b3a2f;
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        cursor: pointer;
+      }
+
+      .pagination button.active {
+        background: #f7efe2;
+        border-color: #9fb4bf;
+      }
+
+      .pagination button:disabled {
+        opacity: 0.45;
+        cursor: default;
+      }
+
       footer {
         text-align: center;
         padding: 42px 20px;
@@ -216,11 +245,98 @@
             View on Amazon
           </a>
         </div>
+
+        <!-- 以后第5本、第6本继续复制这个格式放在这里 -->
+        <!--
+        <div class="product-card">
+          <img
+            src="assets/your-new-notebook-cover.jpg"
+            alt="Your New Notebook Title notebook"
+          />
+
+          <h2>Your New Notebook Title</h2>
+          <p>A short description for this notebook.</p>
+
+          <a class="button" href="https://www.amazon.com/dp/YOURASIN" target="_blank">
+            View on Amazon
+          </a>
+        </div>
+        -->
       </div>
+
+      <div class="pagination" id="pagination"></div>
     </main>
 
     <footer>
       © Nora Bloom Pages · Notebooks and journals
     </footer>
+
+    <script>
+      const cardsPerPage = 8;
+      const cards = document.querySelectorAll(".product-card");
+      const pagination = document.getElementById("pagination");
+
+      let currentPage = 1;
+      const totalPages = Math.ceil(cards.length / cardsPerPage);
+
+      function showPage(page) {
+        currentPage = page;
+
+        cards.forEach((card, index) => {
+          const start = (page - 1) * cardsPerPage;
+          const end = start + cardsPerPage;
+
+          if (index >= start && index < end) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+
+        renderPagination();
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      }
+
+      function renderPagination() {
+        pagination.innerHTML = "";
+
+        if (totalPages <= 1) {
+          pagination.style.display = "none";
+          return;
+        }
+
+        pagination.style.display = "flex";
+
+        const prevButton = document.createElement("button");
+        prevButton.textContent = "Previous";
+        prevButton.disabled = currentPage === 1;
+        prevButton.addEventListener("click", () => showPage(currentPage - 1));
+        pagination.appendChild(prevButton);
+
+        for (let i = 1; i <= totalPages; i++) {
+          const button = document.createElement("button");
+          button.textContent = i;
+
+          if (i === currentPage) {
+            button.classList.add("active");
+          }
+
+          button.addEventListener("click", () => showPage(i));
+          pagination.appendChild(button);
+        }
+
+        const nextButton = document.createElement("button");
+        nextButton.textContent = "Next";
+        nextButton.disabled = currentPage === totalPages;
+        nextButton.addEventListener("click", () => showPage(currentPage + 1));
+        pagination.appendChild(nextButton);
+      }
+
+      showPage(1);
+    </script>
   </body>
 </html>
