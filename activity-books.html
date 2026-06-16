@@ -190,7 +190,12 @@
 
           <h2>STEM Word Search For Kids: Math Vocabulary Puzzles</h2>
 
-          <a class="button" href="https://www.amazon.com/dp/B0H3KKJ5S8" target="_blank">
+          <a
+            class="button"
+            href="https://www.amazon.com/dp/B0H3KKJ5S8"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             View on Amazon
           </a>
         </div>
@@ -204,25 +209,36 @@
 
           <h2>My First Sudoku Adventure: 90 Progressive 4x4 Puzzles</h2>
 
-          <a class="button" href="https://www.amazon.com/dp/B0H2QCKV8L" target="_blank">
+          <a
+            class="button"
+            href="https://www.amazon.com/dp/B0H2QCKV8L"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             View on Amazon
           </a>
         </div>
 
-         <div class="product-card">
+        <!-- Book 3 -->
+        <div class="product-card">
           <img
             src="assets/yummy-food-book.jpg"
-            alt="yummy-food-book"
+            alt="Yummy Food Coloring Book with Big First Words"
           />
 
           <h2>Yummy Food Coloring Book with Big First Words</h2>
 
-          <a class="button" href="https://www.amazon.com/dp/B0H4F2G479" target="_blank">
+          <a
+            class="button"
+            href="https://www.amazon.com/dp/B0H4F2G479"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             View on Amazon
           </a>
         </div>
 
-        <!-- 以后第3本、第4本继续复制这个格式放在这里 -->
+        <!-- 以后新书继续复制这个格式放在这里 -->
         <!--
         <div class="product-card">
           <img
@@ -232,7 +248,12 @@
 
           <h2>Your New Activity Book Title</h2>
 
-          <a class="button" href="https://www.amazon.com/dp/YOURASIN" target="_blank">
+          <a
+            class="button"
+            href="https://www.amazon.com/dp/YOURASIN"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             View on Amazon
           </a>
         </div>
@@ -251,11 +272,27 @@
       const cards = document.querySelectorAll(".product-card");
       const pagination = document.getElementById("pagination");
 
-      let currentPage = 1;
       const totalPages = Math.ceil(cards.length / cardsPerPage);
 
-      function showPage(page) {
+      function getPageFromURL() {
+        const params = new URLSearchParams(window.location.search);
+        const page = Number(params.get("page"));
+
+        if (!Number.isInteger(page) || page < 1 || page > totalPages) {
+          return 1;
+        }
+
+        return page;
+      }
+
+      let currentPage = getPageFromURL();
+
+      function showPage(page, shouldScroll = true) {
         currentPage = page;
+
+        const url = new URL(window.location.href);
+        url.searchParams.set("page", page);
+        window.history.replaceState({}, "", url);
 
         cards.forEach((card, index) => {
           const start = (page - 1) * cardsPerPage;
@@ -270,10 +307,12 @@
 
         renderPagination();
 
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
+        if (shouldScroll) {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
+        }
       }
 
       function renderPagination() {
@@ -289,7 +328,9 @@
         const prevButton = document.createElement("button");
         prevButton.textContent = "Previous";
         prevButton.disabled = currentPage === 1;
-        prevButton.addEventListener("click", () => showPage(currentPage - 1));
+        prevButton.addEventListener("click", () => {
+          showPage(currentPage - 1);
+        });
         pagination.appendChild(prevButton);
 
         for (let i = 1; i <= totalPages; i++) {
@@ -300,18 +341,24 @@
             button.classList.add("active");
           }
 
-          button.addEventListener("click", () => showPage(i));
+          button.addEventListener("click", () => {
+            showPage(i);
+          });
+
           pagination.appendChild(button);
         }
 
         const nextButton = document.createElement("button");
         nextButton.textContent = "Next";
         nextButton.disabled = currentPage === totalPages;
-        nextButton.addEventListener("click", () => showPage(currentPage + 1));
+        nextButton.addEventListener("click", () => {
+          showPage(currentPage + 1);
+        });
         pagination.appendChild(nextButton);
       }
 
-      showPage(1);
+      showPage(currentPage, false);
     </script>
   </body>
 </html>
+
