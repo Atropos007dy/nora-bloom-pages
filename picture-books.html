@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -210,7 +211,7 @@
       <h1 class="page-title">Picture Books</h1>
 
       <p class="intro">
-        Tender read-aloud stories for young children and cozy family moments.
+        Warm, tender picture-book stories for young children and cozy family moments.
       </p>
 
       <div class="series-tabs">
@@ -238,6 +239,7 @@
             class="button"
             href="https://www.amazon.com/Why-Love-Mommy-Little-Poem/dp/B0H3C44XF2/"
             target="_blank"
+            rel="noopener noreferrer"
           >
             View on Amazon
           </a>
@@ -259,29 +261,31 @@
             class="button"
             href="https://www.amazon.com/dp/B0H45R6K4P"
             target="_blank"
+            rel="noopener noreferrer"
           >
             View on Amazon
           </a>
         </div>
 
-        <!-- 以后 Why I Love Daddy 放这里 -->
+        <!-- 以后 Why I Love 系列新书放这里 -->
         <!--
         <div class="product-card" data-series="why-i-love">
           <img
-            src="assets/why-i-love-daddy-cover.jpg"
-            alt="Why I Love Daddy picture book cover"
+            src="assets/your-why-i-love-cover.jpg"
+            alt="Your Why I Love picture book cover"
           />
 
-          <h2>Why I Love Daddy</h2>
+          <h2>Your Why I Love Book Title</h2>
 
           <p>
-            A sweet rhyming picture book celebrating Daddy’s love.
+            A sweet picture book celebrating family love.
           </p>
 
           <a
             class="button"
             href="https://www.amazon.com/dp/YOURASIN"
             target="_blank"
+            rel="noopener noreferrer"
           >
             View on Amazon
           </a>
@@ -306,6 +310,7 @@
             class="button"
             href="https://www.amazon.com/dp/YOURASIN"
             target="_blank"
+            rel="noopener noreferrer"
           >
             View on Amazon
           </a>
@@ -330,6 +335,7 @@
             class="button"
             href="https://www.amazon.com/dp/YOURASIN"
             target="_blank"
+            rel="noopener noreferrer"
           >
             View on Amazon
           </a>
@@ -348,10 +354,34 @@
       const cardsPerPage = 8;
       const cards = Array.from(document.querySelectorAll(".product-card"));
       const pagination = document.getElementById("pagination");
-      const filterButtons = document.querySelectorAll(".series-tabs button");
+      const filterButtons = Array.from(document.querySelectorAll(".series-tabs button"));
 
-      let currentPage = 1;
-      let currentFilter = "all";
+      const validFilters = filterButtons.map((button) => button.dataset.filter);
+
+      function getFilterFromURL() {
+        const params = new URLSearchParams(window.location.search);
+        const filter = params.get("series") || "all";
+
+        if (validFilters.includes(filter)) {
+          return filter;
+        }
+
+        return "all";
+      }
+
+      function getPageFromURL() {
+        const params = new URLSearchParams(window.location.search);
+        const page = Number(params.get("page"));
+
+        if (!Number.isInteger(page) || page < 1) {
+          return 1;
+        }
+
+        return page;
+      }
+
+      let currentFilter = getFilterFromURL();
+      let currentPage = getPageFromURL();
 
       function getFilteredCards() {
         if (currentFilter === "all") {
@@ -361,18 +391,47 @@
         return cards.filter((card) => card.dataset.series === currentFilter);
       }
 
-      function showPage(page) {
-        currentPage = page;
+      function setActiveFilterButton() {
+        filterButtons.forEach((button) => {
+          if (button.dataset.filter === currentFilter) {
+            button.classList.add("active");
+          } else {
+            button.classList.remove("active");
+          }
+        });
+      }
 
+      function updateURL() {
+        const url = new URL(window.location.href);
+
+        if (currentFilter === "all") {
+          url.searchParams.delete("series");
+        } else {
+          url.searchParams.set("series", currentFilter);
+        }
+
+        if (currentPage === 1) {
+          url.searchParams.delete("page");
+        } else {
+          url.searchParams.set("page", currentPage);
+        }
+
+        window.history.replaceState({}, "", url);
+      }
+
+      function showPage(page, shouldScroll = true) {
         const filteredCards = getFilteredCards();
         const totalPages = Math.ceil(filteredCards.length / cardsPerPage);
+        const maxPage = Math.max(totalPages, 1);
+
+        currentPage = Math.min(Math.max(page, 1), maxPage);
 
         cards.forEach((card) => {
           card.style.display = "none";
         });
 
         filteredCards.forEach((card, index) => {
-          const start = (page - 1) * cardsPerPage;
+          const start = (currentPage - 1) * cardsPerPage;
           const end = start + cardsPerPage;
 
           if (index >= start && index < end) {
@@ -380,7 +439,16 @@
           }
         });
 
+        setActiveFilterButton();
+        updateURL();
         renderPagination(totalPages);
+
+        if (shouldScroll) {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
+        }
       }
 
       function renderPagination(totalPages) {
@@ -396,7 +464,9 @@
         const prevButton = document.createElement("button");
         prevButton.textContent = "Previous";
         prevButton.disabled = currentPage === 1;
-        prevButton.addEventListener("click", () => showPage(currentPage - 1));
+        prevButton.addEventListener("click", () => {
+          showPage(currentPage - 1);
+        });
         pagination.appendChild(prevButton);
 
         for (let i = 1; i <= totalPages; i++) {
@@ -407,30 +477,30 @@
             button.classList.add("active");
           }
 
-          button.addEventListener("click", () => showPage(i));
+          button.addEventListener("click", () => {
+            showPage(i);
+          });
+
           pagination.appendChild(button);
         }
 
         const nextButton = document.createElement("button");
         nextButton.textContent = "Next";
         nextButton.disabled = currentPage === totalPages;
-        nextButton.addEventListener("click", () => showPage(currentPage + 1));
+        nextButton.addEventListener("click", () => {
+          showPage(currentPage + 1);
+        });
         pagination.appendChild(nextButton);
       }
 
       filterButtons.forEach((button) => {
         button.addEventListener("click", () => {
-          filterButtons.forEach((btn) => btn.classList.remove("active"));
-          button.classList.add("active");
-
           currentFilter = button.dataset.filter;
-          currentPage = 1;
-
           showPage(1);
         });
       });
 
-      showPage(1);
+      showPage(currentPage, false);
     </script>
   </body>
 </html>
